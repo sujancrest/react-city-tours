@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-// import Tourist from "../page/Tourist";
+import TourList from "./TourList";
 import { tourData } from "../tourData"
-import TourList from "./TourList"
 
 
 class Tours extends Component {
+
     state = {
         tours: tourData,
     }
 
-    removeTours = id => {
-        const { tours } = this.state;
+    removeTour = id => {
+        const { tours } = this.state
         const sortedTours = tours.filter(tour => tour.id !== id);
         this.setState({
             tours: sortedTours
@@ -18,19 +18,19 @@ class Tours extends Component {
     }
 
     render() {
-        const { tours } = this.state
+        const tours = this.state.tours
         // console.log(tours)
         return (
-            <section className="tourlist">
-                {tours.map(tour => {
-                    return <TourList key={tour.id} tours={tour} remove={this.removeTours} />
-                })}
+            <section className="tour-block">
+                {
+                    tours.map(tour => {
+                        return <TourList key={tour.id} tours={tour} remove={this.removeTour} />
+                    })
+                }
             </section>
         )
     }
 }
-
-
 
 
 export default Tours;

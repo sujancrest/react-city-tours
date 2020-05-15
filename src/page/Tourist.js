@@ -9,4 +9,6 @@ function Tourist() {
 }
 
 
-export default Tourist;
+
+
+export default Tourist
